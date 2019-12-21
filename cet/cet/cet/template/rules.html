@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Lilita+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round|Lilita+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        
+  .h{
+    padding: 10px 2px;
+    color: #fff;
+    text-align:right;
+    padding:30px;
+    background-color:lightblue;
+    }
+
+     .line {
+        border-bottom: 1px solid black;
+<!--        position: relative;-->
+        }
+    
+     .btn.btn-success {
+
+     text-align: center;
+     box-radius: 10px;
+     margin-bottom: 5%;
+     margin-top: 5%;
+
+     }
+
+</style>
+    <title>CET-examrules </title>
+</head>
+<body>
+
+        
+<nav class="navbar navbar-light bg-dark">
+
+    <img src="{% static 'sinhgad.png' %}" width="100" height="80" class="d-inline-block align-top" alt="My image"/>
+                
+    <h3 style="color:#fff">Sinhgad Technical Education Society</h3>
+                
+</nav>
+  
+  
+<!-- Grey with black text -->
+
+        
+<!-- Black with white text -->
+
+  
+<!-- Blue with white text -->
+
+<!--<div style="height:20px"></div>-->
+<div class="container">
+    <h1 style="font-size: 60px; margin-top: 20px; font-family: 'Lilita One', cursive;" class="text-center page-header display-1 text-dark">
+            
+        <b>Examinamtion Rules </b>
+    </h1>
+    <div class="line"></div>
+    <p>
+    <h1 align="center" style="font-family: 'Crete Round', serif;"> General Instructions for Online Examination </h1>
+    <br>
+    <h5>1. Total duration of examination is <i><b>180</b></i> minutes.
+        <ul style="list-style-type:disc;">
+            <li>
+                Total number of questions is <i><b>150</b></i>. There are <q>two</q> papers. Paper-i consist 100 questions from physics and chemistry. Paper-ii consist 50 questions from mathematics.</li>
+
+            <li>Total marks is 200. Each paper for 100 marks.</li>
+            <li>Paper-i  questions have 1 marks for each correct answer. Paper-ii question have 2 marks for each correct answer.</li>
+            <li>There is no negative marking for wrong answers. So try all questions confidently.</li>
+          
+        </ul>
+    </h5>
+    <h5>2. The clock will be set at the server. The countdown timer in the top right corner of the screen will  <b>display the remaining time available</b> for you to complete the examination. When the timer reaches zero, the examination will end by itself. You will not be required to end or submit your examination.</h5>
+    <h5>3. The Question Palette displayed on the right side of screen will show the status of each question using one of the following symbols:
+    </h5>
+    <br>
+    <div class="w3-content w3-section" style="align-content: center;">
+        <img class="mySlides w3-animate-fading" src="{% static 'instruction.png' %}" height="300px" width="800px" align="center">
+    </div><br></br>
+    <h5>
+        <b style="color:crimson;"> NOTE :-</b>
+        <p style="color:crimson;"> Clicking on refresh or back button is strictly prohibited.Exam will automatically ends when you will click on any of these buttons.</p>
+    </h5>
+    <h3 align="center" style="font-family: 'Crete Round', serif;"><b>Navigating to a Question :</b></h3>
+    <br>
+    <h5>
+        4. To answer a question do the following: 
+        <ul style="list-style-type: disc;">
+            <li>
+                Click on the question number in the Question Palette to go to that numbered question directly.
+            </li>
+            <li>
+                Click on Save & Next to save your answer for the current question and then go to the next question.
+            </li>
+            <li>
+                Click on Mark for Review & Next to save your answer for the current question, mark it for review, and then go to the next question.
+            </li>
+        </ul>
+        
+       
+        
+        <b style="color: crimson;">Caution: </b>Note that your answer for the current question will not be saved, if you navigate to another question directly by clicking on its question number.
+    </h5>
+    <h5>5. You can view all the questions by clicking on the Question Paper button. Note that the options for multiple choice type questions will not be shown.
+    </h5>
+    <h3 align=center style="font-family: 'Crete Round', serif;"><b>Answering to a Question :</b></h3>
+    <br>
+    <h5>6. <b>Procedure for answering a multiple choice type question: </b>
+        <ul style="list-style-type: disc;">
+            <li>To select your answer, click on the button of one of the options.</li>
+            <li>To deselect your chosen answer, click on the button of the chosen option again or click on the Clear Response button.</li>
+            <li>To change your chosen answer, click on the button of another.
+            <li>To save your answer, you MUST click on the Save & Next buttonTo save your answer, you MUST click on the Save & Next button.</li>
+            <li>To mark the question for review, click on the Mark for Review & Next button.</li> </ul></h5>
+    <h5>7. To change your answer to a question that has already been answered, first select that question for answering and then follow the procedure for answering that type of question.
+    </h5>
+    <h5>8. Note that questions for which option has been chosen and answers are saved or marked for review will be considered for evaluation
+    </h5>
+    <br>
+
+    </p>
+    <form action="/stes_test/rules/" method="POST" style="text-align: center;">
+       {% csrf_token %}
+        <p><h5><input type="checkbox" name="box1" id="box1"><b><i> I have read all the instructions and ready to give the exam.</i></b></h5></p>
+        <br>
+    <button type="submit" class="btn btn-success align-center" name = "username" value={{username}} >Accept</button>
+
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+
+</body>
+
+</html>

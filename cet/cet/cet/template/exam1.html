@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    {% load static %}
+    <meta charset="utf-8">
+
+
+    <!--    <script type="text/javascript" src="https://www.hostmath.com/Math/MathJax.js?config=OK"></script>-->
+    <!--    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>-->
+    <!--    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
+
+    <!--    <script type="text/x-mathjax-config">-->
+    <!--      MathJax.Hub.Config({-->
+    <!--       TeX: { equationNumbers: { autoNumber: "AMS" } }-->
+    <!--      });-->
+    <!--    </script>-->
+
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full"></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no user-scalable=no maximum-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Portal</title>
+    <style type="text/css">
+        .navbar h3{
+
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+
+        }
+
+        .line {
+        border-bottom: 1px solid black;
+        position: relative;
+        }
+
+        .container3 {
+
+          margin-top: 100px;
+         px
+        }
+
+        .time {
+        margin-top: 10px;
+        position: relative;
+        float: right;
+        margin-right: 320px;
+        }
+
+        .btn1{
+            width: 30px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            font-size: 8px;
+            text-align: center;
+        }
+
+        .nxt_tab {
+        margin-top: 30px;
+          padding-bottom: 35px;
+          background-color: grey;
+          border-radius: 5px;
+        }
+
+        .btn.btn-warning {
+
+        float: right;
+        margin-top: 100px;
+        }
+
+        .btn.btn-success {
+
+        margin-top: 100px;
+        }
+
+        .profile {
+
+        position: absolute;
+        margin-top: 20px;
+        margin-left: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<script>
+    function myFunction(no) {
+    { 'next_question_no': no }
+    }
+</script>
+
+<nav class="navbar navbar-light bg-dark">
+
+    <img src="{% static 'sinhgad.png' %}" width="100" height="80" class="d-inline-block align-top" alt="My image"/>
+
+
+
+
+    <h3>Sinhgad Technical Education Society</h3>
+
+</nav>
+<div class="profile">
+    <h5><b>Welcome,</b> Utkarsh</h5>
+</div>
+
+<div class="time">
+    <h5>Time Remaining:</h5>
+    <div class="scrollbar scrollbar-primary">
+        <div class="force-overflow">
+            <div class="container3">
+                <div class="phy">
+                    <h5>Physics</h5>
+                </div>
+                <hr>
+
+                <div class="btn1">
+                    {% for n in physics %}
+                    <a class="button1" href="?page={{ n }}">
+                        <button onclick="assign({{ n }})" type="button" class="btn btn-secondary btn-circle btn-sm">{{ n }}</button>
+                        {% if n|divisibleby:10 %}
+                        <br>
+                        <br>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+
+                </div>
+                <br>
+                <div class="chem">
+                    <h5>Chemistry</h5>
+                </div>
+                <hr>
+
+                <div class="btn1">
+                    {% for n in chemistry %}
+                    <a class="button1" href="?page={{ n }}">
+                        <button onclick="assign({{ n }})" type="button" class="btn btn-secondary btn-circle btn-sm">{{ n }}</button>
+                        {% if n|divisibleby:10 %}
+                        <br>
+                        <br>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+
+                </div>
+                <br>
+                <div class="math">
+                    <h5>Mathematics</h5>
+                </div>
+                <hr>
+
+                <div class="btn1">
+                    {% for n in maths %}
+                    <a class="button1" href="?page={{ n }}">
+                        <button onclick="assign({{ n }})" type="button" class="btn btn-secondary btn-circle btn-sm">{{ n }}</button>
+                        {% if n|divisibleby:10 %}
+                        <br>
+                        <br>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="col-sm-11 py-5">
+        <!--        {% for q in new_question_data %}-->
+
+        <div id="section1">
+            <h2>Question {{ question_number }}</h2>
+            <div class="line"></div>
+
+            <p><h4>{{ new_question_data.0.0 }}</h4></p>
+        </div>
+
+        <div class="form-check">
+
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+            <label class="form-check-label" for="exampleRadios1">
+                <h4>{{ new_question_data.0.1 }}</h4>
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+                <h4>{{ new_question_data.0.2 }}</h4>
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+            <label class="form-check-label" for="exampleRadios3">
+                <h4>{{ new_question_data.0.3 }}</h4>
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+            <label class="form-check-label" for="exampleRadios3">
+                <h4>{{ new_question_data.0.4 }}</h4>
+            </label>
+        </div>
+
+
+        <!--        {% endfor %}-->
+
+
+        <button type="button" class="btn btn-warning">Invalid</button>
+        <button type="button" class="btn btn-success">Bookmark</button>
+        <br>
+        <div class="nxt_tab">
+            {% if questions.has_previous %}
+            <button onclick="myFunction({{ questions.previous_page_number }})" name="next_question_no" value="{{ questions.previous_page_number }}"></button>
+
+            <a class="button1" href="?page={{ questions.previous_page_number }}">
+                <button type="button" class="btn btn-primary float-left">Previous</button>
+            </a>
+            {% endif %}
+            {% if questions.has_next %}
+            <button onclick="myFunction({{ questions.next_page_number }})" name="next_question_no" value="{{ questions.next_page_number }}"></button>
+            <a class="button2" href="?page={{ questions.next_page_number }}">
+                <button type="button" class="btn btn-primary float-right">Save & Next</button>
+            </a>
+            {% endif %}
+        </div>
+
+
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>

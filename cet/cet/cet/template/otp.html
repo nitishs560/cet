@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>otp</title>
+    <style type="text/css">
+    .navbar h3{
+
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        
+        }
+
+        .container h3{
+
+            color: #fff
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-light bg-dark">
+
+    <img src="{% static 'sinhgad.png' %}" width="100" height="80" class="d-inline-block align-top" alt="My image"/>
+    
+    <h3>Sinhgad Technical Education Society</h3>
+    
+</nav>
+
+    <div class="profile">
+         {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                    {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+    </div>
+
+<div class="container py-5 ">
+    <div class="row">
+        <div class="col-md-10">
+          
+            <div class="card card-outline-secondary">
+                <div class="card-header bg-secondary">
+                    <h3 class="mb-0">OTP Confirmation</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/stes_test/otp/" class="form" role="form" autocomplete="off" method="POST">
+                        <input type="hidden" name="assign_questions_to_user" value="1">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="email" placeholder="Enter Email Here" name="username">
+                            </div>
+                        </div>
+
+                            <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Enter OTP</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" placeholder="Enter OTP here" name="otp_field">
+                                <br>
+                                <br>
+                                <input type="submit" class="btn btn-primary btn-success " value="Confirm OTP">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+      
+  </script>
+</body>
+</html>
